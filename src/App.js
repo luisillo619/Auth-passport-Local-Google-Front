@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
 import Axios from "axios";
-const { REACT_APP_BACK_URL } = process.env;
-
+// const { REACT_APP_BACK_URL } = process.env;
+const back = "https://deploy-login-programadores-millonarios.up.railway.app"
 function App() {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
@@ -11,7 +11,7 @@ function App() {
   const [data, setData] = useState(null);
 
   const authGoogle = () => {
-    window.open(`${REACT_APP_BACK_URL}/auth/google`, "_self");
+    window.open(`${back}/auth/google`, "_self");
   };
 
   const register = () => {
@@ -22,7 +22,7 @@ function App() {
         password: registerPassword,
       },
       withCredentials: true,
-      url: `${REACT_APP_BACK_URL}/register`,
+      url: `${back}/register`,
     }).then((res) => console.log(res));
   };
   const login = () => {
@@ -33,14 +33,14 @@ function App() {
         password: loginPassword,
       },
       withCredentials: true,
-      url: `${REACT_APP_BACK_URL}/login`,
+      url: `${back}/login`,
     }).then((res) => console.log(res));
   };
   const getUser = () => {
     Axios({
       method: "GET",
       withCredentials: true,
-      url: `${REACT_APP_BACK_URL}/user`,
+      url: `${back}/user`,
     }).then((res) => {
       setData(res.data);
       console.log(res.data);
@@ -51,7 +51,7 @@ function App() {
     Axios({
       method: "POST",
       withCredentials: true,
-      url: `${REACT_APP_BACK_URL}/logout`,
+      url: `${back}/logout`,
     }).then((res) => {
       console.log("logout successfully");
     });
