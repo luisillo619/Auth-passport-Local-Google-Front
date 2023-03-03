@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import Axios from "axios";
 // const { REACT_APP_BACK_URL } = process.env;
-const back = "https://passport-back-production.up.railway.app"
+// const back = "https://passport-back-production.up.railway.app"
+const back = "http://localhost:4000"
+
 function App() {
   const [registerUsername, setRegisterUsername] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
